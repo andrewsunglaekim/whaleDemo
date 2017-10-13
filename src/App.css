@@ -1,0 +1,20 @@
+div.App {
+  height: 100vh;
+  background: #2233df;
+}
+
+.whale {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  background: grey;
+  left: 47%;
+  top: 0
+}
+
+.seaweed {
+  position: absolute;
+  height: 200px;
+  width: 40px;
+  /* background: green; */
+}
