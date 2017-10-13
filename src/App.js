@@ -3,6 +3,8 @@ import './App.css';
 import WhaleModel from './models/whale';
 import Whale from './components/whale';
 import Seaweed from './components/seaweed';
+import sand from './components/sand.png'
+
 class App extends Component {
   constructor(props){
     super(props)
@@ -53,6 +55,7 @@ class App extends Component {
         {seaweed}
         <Whale
           whale={this.state.whale} />
+        <img src={sand}/>
       </div>
     );
   }

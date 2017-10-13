@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import seaweedPng from './seaweed.png';
+import seaweedPng from './seaweed1.png';
 
 class Seaweed extends Component{
   constructor(props){
