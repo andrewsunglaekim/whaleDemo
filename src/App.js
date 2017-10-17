@@ -61,10 +61,17 @@ class App extends Component {
   }
 
   render() {
-    let seaweed = [1,2,3,4,5, 6, 7, 8].map((el) => {
+    let seaweed = [1,2,3,4,5, 6, 7, 8, 9, 10, 11, 12].map((el) => {
       return <Seaweed isBottom={this.state.whale.isBottom}/>
     })
-    let sandStyle = {width: `${window.innerWidth}px`}
+    let sandTransitionStyle = {
+      width: `${window.innerWidth}px`,
+      top: `${window.innerHeight - window.innerHeight / 1.5}px`
+    }
+    let sandStyle = {
+      width: `${window.innerWidth}px`,
+      top: `${window.innerHeight + 200 - window.innerHeight / 1.5}px`
+    }
     return (
       <div onClick={this.thrust.bind(this)} className="App">
         <Wave isBottom={this.state.whale.isBottom}
@@ -81,8 +88,9 @@ class App extends Component {
         <Whale
           whale={this.state.whale}
           imageUrl={this.state.imageUrl} />
-        <div className='sand-transition' style={sandStyle}></div>
+        <div className='sand-transition' style={sandTransitionStyle}></div>
         <div className='sand' style={sandStyle}></div>
+
       </div>
     );
   }

@@ -41,7 +41,7 @@ div.App {
 .sand-transition {
   position: absolute;
   top: 300px;
-  height: 100px;
+  height: 200px;
   background: linear-gradient(#21baf7, lemonchiffon);
   z-index: 5;
 }
@@ -49,7 +49,7 @@ div.App {
 .sand {
   position: absolute;
   top: 400px;
-  height: 300px;
+  height: 1000px;
   background: lemonchiffon;
   z-index: 5;
 }

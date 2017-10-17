@@ -7,7 +7,7 @@ class Seaweed extends Component{
     console.log(props);
     let imageUrl = seaweedImages[Math.floor(Math.random()*seaweedImages.length)];
     let zIndex=Math.floor(Math.random() * 3) + 10
-    let top = parseInt(Math.random() * 300 +200)
+    let top = (window.innerHeight - window.innerHeight / 1.5) + parseInt(Math.random() * 500)
     let left = parseInt(Math.random() * 100)
     let location = {
       top,
@@ -48,7 +48,7 @@ class Seaweed extends Component{
     if(location.left > 105){
       zIndex=Math.floor(Math.random() * 3) + 10
       imageUrl = seaweedImages[Math.floor(Math.random()*seaweedImages.length)];
-      location.top = parseInt(Math.random() * 300 + 200)
+      location.top = (window.innerHeight - window.innerHeight / 1.5) + parseInt(Math.random() * 500)
       location.left = Math.random() * 10 - 15
     }
 
