@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-import seaweedPng from './seaweed1.png';
+import seaweedImages from './images';
 
 class Seaweed extends Component{
   constructor(props){
     super(props)
     console.log(props);
+    let imageUrl = seaweedImages[Math.floor(Math.random()*seaweedImages.length)];
+    let zIndex=Math.floor(Math.random() * 3) + 10
     let top = parseInt(Math.random() * 300 +200)
     let left = parseInt(Math.random() * 100)
     let location = {
@@ -18,16 +20,18 @@ class Seaweed extends Component{
     this.state = {
       isBottom: props.isBottom,
       location,
-      styles
+      styles,
+      imageUrl,
+      zIndex
     }
     this.start()
   }
 
   start(){
     this.intervalId = setInterval(() => {
-      console.log("running...")
+      // console.log("running...")
       if(this.props.isBottom){
-        console.log("at bottom ...");
+        // console.log("at bottom ...");
       } else {
         this.moveWeed()
       }
@@ -39,21 +43,28 @@ class Seaweed extends Component{
       top: this.state.location.top,
       left: this.state.location.left + 0.3
     }
+    let zIndex = this.state.zIndex
+    let imageUrl = this.state.imageUrl
     if(location.left > 105){
+      zIndex=Math.floor(Math.random() * 3) + 10
+      imageUrl = seaweedImages[Math.floor(Math.random()*seaweedImages.length)];
       location.top = parseInt(Math.random() * 300 + 200)
       location.left = Math.random() * 10 - 15
     }
+
     let styles = {
       top: `${location.top}px`,
-      left: `${location.left}%`
+      left: `${location.left}%`,
+      zIndex
     }
-    this.setState({location, styles})
+    this.setState({location, styles, imageUrl, zIndex})
   }
 
   render(){
 
+
     return (
-      <img className='seaweed' src={seaweedPng} style={this.state.styles} />
+      <img className='seaweed' src={this.state.imageUrl} style={this.state.styles} />
     )
   }
 }

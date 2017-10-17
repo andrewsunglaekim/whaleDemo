@@ -6,17 +6,20 @@ class Whale extends Component {
     console.log(props);
     this.state = {
       whale: props.whale,
+      imageUrl: props.imageUrl
     }
   }
 
   setStyle(){
+
    return {top: `${this.state.whale.posY}px`}
 
   }
 
   render(){
     return(
-      <div style={this.setStyle()} className='whale'>WhaleComponent</div>
+      <img src={this.props.imageUrl} style={this.setStyle()} className='whale'/>
+      // <div style={this.setStyle()} className='whale'>WhaleComponent</div>
     )
   }
 }

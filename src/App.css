@@ -1,15 +1,18 @@
 div.App {
+  position: relative;
   height: 100vh;
-  background: #2233df;
+  width: 100vw;
+  background: #21baf7;
+  overflow: hidden;
 }
 
 .whale {
   position: absolute;
-  height: 100px;
-  width: 100px;
-  background: grey;
+  height: 150px;
+  width: 250px;
   left: 47%;
-  top: 0
+  top: 0;
+  z-index: 11;
 }
 
 .seaweed {
@@ -17,4 +20,36 @@ div.App {
   height: 200px;
   width: 180px;
   /* background: green; */
+}
+
+.wave {
+  top: 200px;
+  position: absolute;
+  height: 200px;
+  background: #21baf7;
+}
+
+.wavelet {
+  position: absolute;
+  top: -25px;
+  height: 40px;
+  background: linear-gradient(#21e1f7, #21baf7);
+  border-radius: 50% 50% 0 0;
+  z-index: 1;
+}
+
+.sand-transition {
+  position: absolute;
+  top: 300px;
+  height: 100px;
+  background: linear-gradient(#21baf7, lemonchiffon);
+  z-index: 5;
+}
+
+.sand {
+  position: absolute;
+  top: 400px;
+  height: 300px;
+  background: lemonchiffon;
+  z-index: 5;
 }

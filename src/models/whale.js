@@ -53,8 +53,8 @@ class Whale {
     this.setVelocity()
     this.setPosY()
     console.log(this.posY);
-    if(this.posY > maxPosY - 100) {
-      this.posY = maxPosY - 100
+    if(this.posY > maxPosY - 150) {
+      this.posY = maxPosY - 150
       this.isBottom = true
     } else {
       this.posY = this.posY
