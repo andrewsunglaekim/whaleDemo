@@ -16,8 +16,8 @@ class App extends Component {
     let whale = new WhaleModel(100, 10)
     let imageUrl = dockerHappyUp
     let physicsProperties = {
-      acceleration: -33,
-      velocity: 80,
+      acceleration: -60,
+      velocity: 130,
       timeBetween: 2,
     }
     this.state = {

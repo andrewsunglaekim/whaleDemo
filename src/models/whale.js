@@ -4,9 +4,9 @@ class Whale {
   constructor(initPosY, initVelocity){
     this.initPosY = initPosY
     this.posY = initPosY
-    this.initVelocity = 0
+    this.initVelocity =0
     this.time = 0
-    this.acceleration = -33
+    this.acceleration = -60
     this.responseTimes = [0]
     // this.intervalId = setInterval(() => {
     //   let responseStartTime = new Date()
