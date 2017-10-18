@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import PhysicsControls from './containers/PhysicsControls'
 import WhaleModel from './models/whale';
 import Whale from './components/whale';
 import Wave from './components/wave';
 import Seaweed from './components/seaweed';
-import sand from './components/sand.png'
+// import Bubble from './components/bubble';
 import dockerSadUp from './images/dockerSadUp.png';
-import dockerSadDown from './images/dockerSadDown.png';
 import dockerHappyUp from './images/dockerHappyUp.png';
 import dockerHappyDown from './images/dockerHappyDown.png';
 
@@ -15,16 +15,20 @@ class App extends Component {
     super(props)
     let whale = new WhaleModel(100, 10)
     let imageUrl = dockerHappyUp
-    console.log(window);
+    let physicsProperties = {
+      acceleration: -33,
+      velocity: 80,
+      timeBetween: 2,
+    }
     this.state = {
       whale,
-      imageUrl
+      imageUrl,
+      physicsProperties
     }
     this.start()
   }
 
   thrust(evt){
-    console.log("thursting");
     this.setState({
       imageUrl: dockerHappyDown
     })
@@ -34,7 +38,7 @@ class App extends Component {
       })
     }, 500)
     let whale = this.state.whale
-    whale.initVelocity = 80
+    whale.initVelocity = this.state.physicsProperties.velocity
     whale.initPosY = whale.posY
     whale.time = 0
     whale.isBottom = false
@@ -60,9 +64,19 @@ class App extends Component {
     }, 20)
   }
 
+  setPhysicsProperties(physicsProps){
+    let whale = this.state.whale
+    whale.acceleration = physicsProps.acceleration
+    let physicsProperties = this.state.physicsProperties
+    physicsProperties.velocity = physicsProps.velocity
+    this.setState({whale, physicsProperties})
+    console.log("seting physics");
+    console.log(physicsProps);
+  }
+
   render() {
-    let seaweed = [1,2,3,4,5, 6, 7, 8, 9, 10, 11, 12].map((el) => {
-      return <Seaweed isBottom={this.state.whale.isBottom}/>
+    let seaweed = [1,2,3,4,5, 6].map((el) => {
+      return <Seaweed key={el} isBottom={this.state.whale.isBottom}/>
     })
     let sandTransitionStyle = {
       width: `${window.innerWidth}px`,
@@ -74,16 +88,17 @@ class App extends Component {
     }
     return (
       <div onClick={this.thrust.bind(this)} className="App">
+        <PhysicsControls physicsProperties={this.state.physicsProperties}
+                         onSubmit={this.setPhysicsProperties.bind(this)}/>
         <Wave isBottom={this.state.whale.isBottom}
-              top={105}
+              top={30}
               offSet={-52}/>
         <Wave isBottom={this.state.whale.isBottom}
-              top={185}
+              top={105}
               offSet={-14}/>
         <Wave isBottom={this.state.whale.isBottom}
-              top={50}
+              top={185}
               offSet={-36}/>
-        <div>Click for velocity</div>
         {seaweed}
         <Whale
           whale={this.state.whale}

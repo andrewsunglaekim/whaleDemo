@@ -1,14 +1,13 @@
-import axios from 'axios'
+// import axios from 'axios'
 
 class Whale {
   constructor(initPosY, initVelocity){
     this.initPosY = initPosY
     this.posY = initPosY
-    this.initVelocity =0
+    this.initVelocity = 0
     this.time = 0
     this.acceleration = -33
     this.responseTimes = [0]
-    let counter = 0
     // this.intervalId = setInterval(() => {
     //   let responseStartTime = new Date()
     //   this.ping().then(() => {
@@ -52,13 +51,16 @@ class Whale {
     this.time += time
     this.setVelocity()
     this.setPosY()
-    console.log(this.posY);
     if(this.posY > maxPosY - 150) {
       this.posY = maxPosY - 150
       this.isBottom = true
     } else {
       this.posY = this.posY
     }
+    // The "Actual" position of the whale will still be increased depending on paramters
+    // ie this.setPosY() will still calculate the actual posY this will just reset
+    // it to be the top of the screen
+    this.posY = this.posY < 0 ? 0 : this.posY
   }
 }
 

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class Whale extends Component {
   constructor(props){
     super(props)
-    console.log(props);
     this.state = {
       whale: props.whale,
       imageUrl: props.imageUrl
@@ -18,7 +17,7 @@ class Whale extends Component {
 
   render(){
     return(
-      <img src={this.props.imageUrl} style={this.setStyle()} className='whale'/>
+      <img alt={"docker whale"} src={this.props.imageUrl} style={this.setStyle()} className='whale'/>
       // <div style={this.setStyle()} className='whale'>WhaleComponent</div>
     )
   }

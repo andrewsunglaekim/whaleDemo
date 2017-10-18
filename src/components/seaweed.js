@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-import seaweedImages from './images';
+import seaweedImages from './seaweedImages';
 
 class Seaweed extends Component{
   constructor(props){
     super(props)
-    console.log(props);
     let imageUrl = seaweedImages[Math.floor(Math.random()*seaweedImages.length)];
     let zIndex=Math.floor(Math.random() * 3) + 10
-    let top = (window.innerHeight - window.innerHeight / 1.5) + parseInt(Math.random() * 500)
-    let left = parseInt(Math.random() * 100)
+    let top = (window.innerHeight - window.innerHeight / 2) + parseInt(Math.random() * (window.innerHeight  / 2) - 200, 10)
+    let left = parseInt(Math.random() * 100, 10)
     let location = {
       top,
       left
@@ -48,7 +47,7 @@ class Seaweed extends Component{
     if(location.left > 105){
       zIndex=Math.floor(Math.random() * 3) + 10
       imageUrl = seaweedImages[Math.floor(Math.random()*seaweedImages.length)];
-      location.top = (window.innerHeight - window.innerHeight / 1.5) + parseInt(Math.random() * 500)
+      location.top = (window.innerHeight - window.innerHeight / 2) + parseInt(Math.random() * (window.innerHeight  / 2) - 200, 10)
       location.left = Math.random() * 10 - 15
     }
 
@@ -64,7 +63,7 @@ class Seaweed extends Component{
 
 
     return (
-      <img className='seaweed' src={this.state.imageUrl} style={this.state.styles} />
+      <img alt={"seaweed"} className='seaweed' src={this.state.imageUrl} style={this.state.styles} />
     )
   }
 }

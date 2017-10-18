@@ -1,3 +1,8 @@
+* {
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+}
 div.App {
   position: relative;
   height: 100vh;
@@ -13,6 +18,10 @@ div.App {
   left: 47%;
   top: 0;
   z-index: 11;
+}
+
+.bubble {
+  position: absolute;
 }
 
 .seaweed {
@@ -38,6 +47,16 @@ div.App {
   z-index: 1;
 }
 
+.circles {
+  border-radius: 50%;
+  top: -35px;
+  height: 24px;
+  width: 64px;
+  position: absolute;
+  z-index: 2;
+  background: #21baf7;
+}
+
 .sand-transition {
   position: absolute;
   top: 300px;
@@ -52,4 +71,9 @@ div.App {
   height: 1000px;
   background: lemonchiffon;
   z-index: 5;
+}
+
+.controller {
+  position: absolute;
+  z-index: 10000;
 }
