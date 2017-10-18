@@ -19,7 +19,8 @@ class Wave extends Component {
       speed,
       baseSpeed
     }
-    this.time = 0
+    this.time = this.props.offSet * 6.18 / 100
+    console.log(this.time);
     this.start()
   }
 
@@ -36,7 +37,7 @@ class Wave extends Component {
 
   move(){
     let location = {
-      top: this.state.location.top + Math.sin(this.time) / 1.5,
+      top: this.state.location.top + Math.sin(this.time)/2,
       left: this.state.location.left - 0.5 * this.state.speed
     }
 

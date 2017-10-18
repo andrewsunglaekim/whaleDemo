@@ -91,13 +91,13 @@ class App extends Component {
         <PhysicsControls physicsProperties={this.state.physicsProperties}
                          onSubmit={this.setPhysicsProperties.bind(this)}/>
         <Wave isBottom={this.state.whale.isBottom}
-              top={30}
+              top={50}
               offSet={-52}/>
         <Wave isBottom={this.state.whale.isBottom}
-              top={105}
+              top={115}
               offSet={-14}/>
         <Wave isBottom={this.state.whale.isBottom}
-              top={185}
+              top={195}
               offSet={-36}/>
         {seaweed}
         <Whale
