@@ -27,16 +27,20 @@ class PhysicsControls extends Component {
   render(){
     return (
       <div className="controller">
+        <header>Physics Controls</header>
         <Input value={this.state.acceleration}
                onChange={this.handleFieldChange.bind(this)}
-               property={"acceleration"} />
+               property={"acceleration"}
+               attribute={"Gravity:"} />
         <Input value={this.state.velocity}
                onChange={this.handleFieldChange.bind(this)}
-               property={"velocity"} />
+               property={"velocity"}
+               attribute={"Thrust:"} />
         <Input value={this.state.timeBetween}
                onChange={this.handleFieldChange.bind(this)}
-               property={"timeBtwRequests"} />
-        <div onClick={this.submit.bind(this)}>Set Values</div>
+               property={"timeBtwRequests"}
+               attribute={"Interval:"} />
+        <div className='button' onClick={this.submit.bind(this)}>Set Values</div>
       </div>
     )
   }

@@ -19,7 +19,10 @@ class Input extends Component {
 
   render(){
     return (
-      <input onChange={this.handleChange.bind(this)} value={this.state.value || ''}/>
+      <div className='inputField'>
+        <span className='attribute'>{this.props.attribute}</span>
+        <input onChange={this.handleChange.bind(this)} value={this.state.value || ''}/>
+      </div>
     )
   }
 }

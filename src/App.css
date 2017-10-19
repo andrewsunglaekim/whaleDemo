@@ -74,6 +74,56 @@ div.App {
 }
 
 .controller {
+  border: 6px solid #11aae7;
+  background: #31caff;
+  padding: 10px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
   position: absolute;
+  top: 5px;
+  left: 5px;
   z-index: 10000;
+}
+
+.controller header {
+  padding-bottom: 5px;
+  margin-bottom: 8px;
+  font-family: 'Hammersmith One', sans-serif;
+  color: lemonchiffon;
+  border-bottom: 1px solid lemonchiffon;
+}
+
+.inputField {
+  font-family: 'Hammersmith One', sans-serif;
+  text-align: right;
+}
+
+.inputField span {
+  color: lemonchiffon;
+  margin-right: 10px;
+}
+
+input{
+  color: #fcfcfc;
+  border: 2px solid #11aae7;
+  border-radius: 5px;
+  font-family: 'Hammersmith One', sans-serif;
+  width: 50px;
+  height: 30px;
+  font-size: 22px;
+  background: #21e1f7;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+div.button {
+  background-color: #21e1f7;
+  text-align: center;
+  border-radius: 7px;
+  border-bottom: 4px solid #01c1d7;
+}
+
+div.button:active {
+  transform: translate(0px, 3px);
+  border-bottom: 1px solid #01c1d7;
 }
