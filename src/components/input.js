@@ -14,7 +14,6 @@ class Input extends Component {
     }, () => {
       this.props.onChange(this.props.property, this.state.value)
     })
-    // console.log(evt.target.value);
   }
 
   render(){

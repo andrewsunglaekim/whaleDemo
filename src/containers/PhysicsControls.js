@@ -8,9 +8,10 @@ class PhysicsControls extends Component {
     let physicsProperties = {
       acceleration: props.physicsProperties.acceleration,
       velocity: props.physicsProperties.velocity,
-      timeBetween: props.physicsProperties.timeBetween
+      timeBtwRequests: props.physicsProperties.timeBtwRequests
     }
     this.state = physicsProperties
+    console.log(this.state);
   }
 
   handleFieldChange(property, value){
@@ -20,7 +21,6 @@ class PhysicsControls extends Component {
   }
 
   submit(){
-    console.log('submitting');
     this.props.onSubmit(this.state)
   }
 
@@ -36,7 +36,7 @@ class PhysicsControls extends Component {
                onChange={this.handleFieldChange.bind(this)}
                property={"velocity"}
                attribute={"Thrust:"} />
-        <Input value={this.state.timeBetween}
+        <Input value={this.state.timeBtwRequests}
                onChange={this.handleFieldChange.bind(this)}
                property={"timeBtwRequests"}
                attribute={"Interval:"} />

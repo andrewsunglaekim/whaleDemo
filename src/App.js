@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 import './App.css';
 import PhysicsControls from './containers/PhysicsControls'
 import WhaleModel from './models/whale';
@@ -18,7 +19,7 @@ class App extends Component {
     let physicsProperties = {
       acceleration: -60,
       velocity: 130,
-      timeBetween: 2,
+      timeBtwRequests: 2,
     }
     this.state = {
       whale,
@@ -26,9 +27,23 @@ class App extends Component {
       physicsProperties
     }
     this.start()
+    this.startRequests(this.state.physicsProperties.timeBtwRequests * 1000)
   }
 
-  thrust(evt){
+  startRequests(interval){
+    this.reqIntervalId = setTimeout(() => {
+      // this.ping().then(() => {
+        this.thrust()
+        this.startRequests(this.state.physicsProperties.timeBtwRequests * 1000)
+      // })
+    }, interval)
+  }
+
+  ping(){
+    return axios.get("http://localhost:4000/test")
+  }
+
+  thrust(){
     this.setState({
       imageUrl: dockerHappyDown
     })
@@ -69,6 +84,7 @@ class App extends Component {
     whale.acceleration = physicsProps.acceleration
     let physicsProperties = this.state.physicsProperties
     physicsProperties.velocity = physicsProps.velocity
+    physicsProperties.timeBtwRequests = physicsProps.timeBtwRequests
     this.setState({whale, physicsProperties})
     console.log("seting physics");
     console.log(physicsProps);
@@ -87,7 +103,7 @@ class App extends Component {
       top: `${window.innerHeight + 200 - window.innerHeight / 1.5}px`
     }
     return (
-      <div onClick={this.thrust.bind(this)} className="App">
+      <div className="App">
         <PhysicsControls physicsProperties={this.state.physicsProperties}
                          onSubmit={this.setPhysicsProperties.bind(this)}/>
         <Wave isBottom={this.state.whale.isBottom}

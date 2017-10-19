@@ -1,6 +1,6 @@
 {
   "name": "whale-demo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
@@ -15,5 +15,5 @@
     "eject": "react-scripts eject",
     "deploy": "npm run build&&gh-pages -d build"
   },
-  "homepage": "https://andrewsunglaekim.github.io/whaleDemo"
+  "homepage": "https://andrewsunglaekim.github.io"
 }

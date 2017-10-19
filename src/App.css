@@ -117,6 +117,7 @@ input{
 }
 
 div.button {
+  color: lemonChiffon;
   background-color: #21e1f7;
   text-align: center;
   border-radius: 7px;

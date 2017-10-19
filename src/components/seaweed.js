@@ -28,10 +28,7 @@ class Seaweed extends Component{
 
   start(){
     this.intervalId = setInterval(() => {
-      // console.log("running...")
-      if(this.props.isBottom){
-        // console.log("at bottom ...");
-      } else {
+      if(!this.props.isBottom){
         this.moveWeed()
       }
     }, 20)
@@ -50,7 +47,6 @@ class Seaweed extends Component{
       location.top = (window.innerHeight - window.innerHeight / 2) + parseInt(Math.random() * (window.innerHeight  / 2) - 200, 10)
       location.left = Math.random() * 10 - 15
     }
-
     let styles = {
       top: `${location.top}px`,
       left: `${location.left}%`,
@@ -60,8 +56,6 @@ class Seaweed extends Component{
   }
 
   render(){
-
-
     return (
       <img alt={"seaweed"} className='seaweed' src={this.state.imageUrl} style={this.state.styles} />
     )

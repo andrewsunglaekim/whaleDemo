@@ -18,7 +18,6 @@ class Whale extends Component {
   render(){
     return(
       <img alt={"docker whale"} src={this.props.imageUrl} style={this.setStyle()} className='whale'/>
-      // <div style={this.setStyle()} className='whale'>WhaleComponent</div>
     )
   }
 }
