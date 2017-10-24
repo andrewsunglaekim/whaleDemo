@@ -15,5 +15,5 @@
     "eject": "react-scripts eject",
     "deploy": "npm run build&&gh-pages -d build"
   },
-  "homepage": "https://andrewsunglaekim.github.io/whaleDemo/"
+  "homepage": "https://andrewsunglaekim.github.io"
 }
