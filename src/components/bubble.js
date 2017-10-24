@@ -4,7 +4,6 @@ import bubbleImages from './bubbleImages';
 class Bubble extends Component{
   constructor(props){
     super(props)
-    console.log(props);
     let imageUrl = bubbleImages[Math.floor(Math.random()*bubbleImages.length)];
     let zIndex=Math.floor(Math.random() * 3) + 10
     let top = (window.innerHeight - window.innerHeight / 1.5) + parseInt(Math.random() * 500)
@@ -33,10 +32,7 @@ class Bubble extends Component{
 
   start(){
     this.intervalId = setInterval(() => {
-      // console.log("running...")
-      if(this.props.isBottom){
-        // console.log("at bottom ...");
-      } else {
+      if(!this.props.isBottom){
         this.move()
       }
     }, 20)

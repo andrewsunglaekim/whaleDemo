@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 class Input extends Component {
   constructor(props){
     super()
-    console.log(props);
     this.state = {
       value: props.value
     }

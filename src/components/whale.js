@@ -10,9 +10,7 @@ class Whale extends Component {
   }
 
   setStyle(){
-
    return {top: `${this.state.whale.posY}px`}
-
   }
 
   render(){

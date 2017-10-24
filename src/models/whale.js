@@ -1,5 +1,3 @@
-// import axios from 'axios'
-
 class Whale {
   constructor(initPosY, initVelocity){
     this.initPosY = initPosY
@@ -8,36 +6,7 @@ class Whale {
     this.time = 0
     this.acceleration = -60
     this.responseTimes = [0]
-    // this.intervalId = setInterval(() => {
-    //   let responseStartTime = new Date()
-    //   this.ping().then(() => {
-    //     counter++
-    //     console.log(counter);
-    //     let responseFinishTime = new Date()
-    //     let responseLength = parseFloat(responseFinishTime - responseStartTime)
-    //     // if(counter > 10 && Math.random() > 0.5){responseLength += Math.random() * 2000}
-    //     console.log("resposne length", responseLength);
-    //     console.log("average", this.getAverageResponseTime());
-    //     console.log(Math.abs(responseLength - this.getAverageResponseTime()));
-    //     if(Math.abs(responseLength - this.getAverageResponseTime()) < 30){this.responseTimes.push(responseLength)}
-    //
-    //
-    //     if(this.responseTimes.length > 5){this.responseTimes.shift()}
-    //     console.log(this.responseTimes);
-    //   })
-    // }, 2000)
   }
-
-  // ping(){
-  //   return axios.get("http://localhost:4000/test")
-  // }
-  //
-  // getAverageResponseTime(){
-  //   let sum = this.responseTimes.reduce((sum, value) => {
-  //     return sum + value
-  //   }, 0)
-  //   return sum / this.responseTimes.length
-  // }
 
   setVelocity(){
     this.velocity = this.initVelocity + this.acceleration * this.time

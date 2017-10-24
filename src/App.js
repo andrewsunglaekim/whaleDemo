@@ -86,14 +86,16 @@ class App extends Component {
     physicsProperties.velocity = physicsProps.velocity
     physicsProperties.timeBtwRequests = physicsProps.timeBtwRequests
     this.setState({whale, physicsProperties})
-    console.log("seting physics");
-    console.log(physicsProps);
   }
 
   render() {
     let seaweed = [1,2,3,4,5, 6].map((el) => {
       return <Seaweed key={el} isBottom={this.state.whale.isBottom}/>
     })
+    // TODO: too slow for now, maybe add bubble but reduce interval for motion to higher than 20
+    // let bubbles = [1,2,3,4,5, 6].map((el) => {
+    //   return <Bubble key={el} isBottom={this.state.whale.isBottom}/>
+    // })
     let sandTransitionStyle = {
       width: `${window.innerWidth}px`,
       top: `${window.innerHeight - window.innerHeight / 1.5}px`

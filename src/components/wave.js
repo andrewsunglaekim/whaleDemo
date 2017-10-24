@@ -20,7 +20,6 @@ class Wave extends Component {
       baseSpeed
     }
     this.time = Math.random()* this.props.offSet * 6.18 / 100
-    console.log(this.time);
     this.start()
   }
 

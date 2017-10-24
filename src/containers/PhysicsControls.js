@@ -4,14 +4,12 @@ import Input from '../components/input'
 class PhysicsControls extends Component {
   constructor(props){
     super(props)
-    console.log(props);
     let physicsProperties = {
       acceleration: props.physicsProperties.acceleration,
       velocity: props.physicsProperties.velocity,
       timeBtwRequests: props.physicsProperties.timeBtwRequests
     }
     this.state = physicsProperties
-    console.log(this.state);
   }
 
   handleFieldChange(property, value){
