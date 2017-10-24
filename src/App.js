@@ -20,6 +20,7 @@ class App extends Component {
       acceleration: -60,
       velocity: 130,
       timeBtwRequests: 2,
+      load: 1
     }
     this.state = {
       whale,
@@ -40,7 +41,7 @@ class App extends Component {
   }
 
   ping(){
-    return axios.get("http://localhost:4000/test")
+    return axios.get(`http://localhost:4567/test/${this.state.physicsProperties.load}`)
   }
 
   thrust(){
@@ -85,6 +86,7 @@ class App extends Component {
     let physicsProperties = this.state.physicsProperties
     physicsProperties.velocity = physicsProps.velocity
     physicsProperties.timeBtwRequests = physicsProps.timeBtwRequests
+    physicsProperties.load = physicsProps.load
     this.setState({whale, physicsProperties})
   }
 

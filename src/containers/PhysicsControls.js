@@ -7,7 +7,8 @@ class PhysicsControls extends Component {
     let physicsProperties = {
       acceleration: props.physicsProperties.acceleration,
       velocity: props.physicsProperties.velocity,
-      timeBtwRequests: props.physicsProperties.timeBtwRequests
+      timeBtwRequests: props.physicsProperties.timeBtwRequests,
+      load: props.physicsProperties.load
     }
     this.state = physicsProperties
   }
@@ -38,6 +39,10 @@ class PhysicsControls extends Component {
                onChange={this.handleFieldChange.bind(this)}
                property={"timeBtwRequests"}
                attribute={"Interval:"} />
+        <Input value={this.state.load}
+               onChange={this.handleFieldChange.bind(this)}
+               property={"load"}
+               attribute={"Load:"} />
         <div className='button set' onClick={this.submit.bind(this)}>Set Values</div>
         <div className='button thrust' onClick={this.props.thrust}>Thrust</div>
       </div>
