@@ -40,7 +40,8 @@ class PhysicsControls extends Component {
                onChange={this.handleFieldChange.bind(this)}
                property={"timeBtwRequests"}
                attribute={"Interval:"} />
-        <div className='button' onClick={this.submit.bind(this)}>Set Values</div>
+        <div className='button set' onClick={this.submit.bind(this)}>Set Values</div>
+        <div className='button thrust' onClick={this.props.thrust}>Thrust</div>
       </div>
     )
   }

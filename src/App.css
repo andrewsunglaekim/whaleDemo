@@ -76,7 +76,7 @@ div.App {
 .controller {
   border: 6px solid #11aae7;
   background: #31caff;
-  padding: 10px 20px 20px 20px;
+  padding: 10px 20px 17px 15px;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -117,14 +117,30 @@ input{
 }
 
 div.button {
+  /* position: absolute; */
   color: lemonChiffon;
   background-color: #21e1f7;
   text-align: center;
   border-radius: 7px;
-  border-bottom: 4px solid #01c1d7;
+  border-bottom: 3px solid #00b1c7;
 }
+
+div.button.thrust {
+  /* position: absolute; */
+  bottom: 15px;
+  margin-top: 7px;
+}
+
+
 
 div.button:active {
   transform: translate(0px, 3px);
-  border-bottom: 1px solid #01c1d7;
+  margin-top: 2px;
+  border-bottom: 1px solid #00b1c7;
+}
+
+div.button.thrust:active {
+  /* position: absolute; */
+  bottom: 15px;
+  margin-top: 9px;
 }

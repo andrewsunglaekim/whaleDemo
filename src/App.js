@@ -105,7 +105,8 @@ class App extends Component {
     return (
       <div className="App">
         <PhysicsControls physicsProperties={this.state.physicsProperties}
-                         onSubmit={this.setPhysicsProperties.bind(this)}/>
+                         onSubmit={this.setPhysicsProperties.bind(this)}
+                         thrust={this.thrust.bind(this)}/>
         <Wave isBottom={this.state.whale.isBottom}
               top={50}
               offSet={-52}/>
