@@ -31,7 +31,7 @@ class Seaweed extends Component{
       if(!this.props.isBottom){
         this.moveWeed()
       }
-    }, 20)
+    }, this.props.intervalLength)
   }
 
   moveWeed(){

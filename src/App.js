@@ -22,10 +22,12 @@ class App extends Component {
       timeBtwRequests: 2,
       load: 1
     }
+    let intervalLength = 30
     this.state = {
       whale,
       imageUrl,
-      physicsProperties
+      physicsProperties,
+      intervalLength
     }
     this.start()
     this.startRequests(this.state.physicsProperties.timeBtwRequests * 1000)
@@ -77,7 +79,7 @@ class App extends Component {
         this.setState({imageUrl: dockerSadUp})
       }
       this.setState({whale})
-    }, 20)
+    }, this.state.intervalLength)
   }
 
   setPhysicsProperties(physicsProps){
@@ -92,7 +94,7 @@ class App extends Component {
 
   render() {
     let seaweed = [1,2,3,4,5, 6].map((el) => {
-      return <Seaweed key={el} isBottom={this.state.whale.isBottom}/>
+      return <Seaweed key={el} isBottom={this.state.whale.isBottom} intervalLength={this.state.intervalLength}/>
     })
     // TODO: too slow for now, maybe add bubble but reduce interval for motion to higher than 20
     // let bubbles = [1,2,3,4,5, 6].map((el) => {
@@ -113,13 +115,16 @@ class App extends Component {
                          thrust={this.thrust.bind(this)}/>
         <Wave isBottom={this.state.whale.isBottom}
               top={50}
-              offSet={-52}/>
+              offSet={-52}
+              intervalLength={this.state.intervalLength}/>
         <Wave isBottom={this.state.whale.isBottom}
               top={115}
-              offSet={-14}/>
+              offSet={-14}
+              intervalLength={this.state.intervalLength}/>
         <Wave isBottom={this.state.whale.isBottom}
               top={195}
-              offSet={-36}/>
+              offSet={-36}
+              intervalLength={this.state.intervalLength}/>
         {seaweed}
         <Whale
           whale={this.state.whale}

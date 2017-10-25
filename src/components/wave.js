@@ -31,7 +31,7 @@ class Wave extends Component {
         this.time += (6.18 / 100)
         this.move()
       }
-    }, 20)
+    }, this.props.intervalLength)
   }
 
   move(){
