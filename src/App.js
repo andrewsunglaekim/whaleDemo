@@ -33,15 +33,15 @@ class App extends Component {
 
   startRequests(interval){
     this.reqIntervalId = setTimeout(() => {
-      // this.ping().then(() => {
+      this.ping().then(() => {
         this.thrust()
         this.startRequests(this.state.physicsProperties.timeBtwRequests * 1000)
-      // })
+      })
     }, interval)
   }
 
   ping(){
-    return axios.get(`http://localhost:4567/test/${this.state.physicsProperties.load}`)
+    return axios.get(`http://localhost:4567/${this.state.physicsProperties.load}`)
   }
 
   thrust(){
