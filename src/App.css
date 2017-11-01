@@ -144,3 +144,26 @@ div.button.thrust:active {
   bottom: 15px;
   margin-top: 9px;
 }
+
+div.usageStats {
+  border: 6px solid #11aae7;
+  background: #31caff;
+  padding: 10px 20px 17px 15px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: lemonchiffon;
+  z-index: 10000;
+}
+
+div.stat{
+  display: flex;
+  justify-content: flex-end;
+}
+
+span.percentage {
+  width: 20%;
+  margin-left: 7px;
+}

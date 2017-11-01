@@ -23,27 +23,69 @@ class App extends Component {
       load: 1
     }
     let intervalLength = 30
+    let fakeData = {
+      d1: {
+        stats: [
+          {name: 'bob', cpu_percent: (Math.random() * 100).toFixed(2) + "%"},
+          {name: 'bob1', cpu_percent: (Math.random() * 100).toFixed(2) + "%"},
+          {name: 'boasrvasfvasvasrvasb2', cpu_percent: (Math.random() * 100).toFixed(2) + "%"},
+        ]
+      },
+      d2: {
+        stats: [
+          {name: 'mary', cpu_percent: (Math.random() * 100).toFixed(2) + "%"},
+          {name: 'maryasdfasfas1', cpu_percent: (Math.random() * 100).toFixed(2) + "%"},
+        ]
+      }
+    }
+    console.log(this.parseData(fakeData));
     this.state = {
       whale,
       imageUrl,
       physicsProperties,
-      intervalLength
+      intervalLength,
+      cpuUsageStats: this.parseData(fakeData)
     }
     this.start()
     this.startRequests(this.state.physicsProperties.timeBtwRequests * 1000)
   }
 
+  parseData(data){
+    let dataKeys = Object.keys(data)
+    let statPairs = []
+    dataKeys.forEach((key) => {
+      data[key].stats.forEach((statObj) => {
+        let parsedStatObj = {name: statObj.name, cpuPercent: statObj.cpu_percent}
+        statPairs.push(parsedStatObj)
+      })
+    })
+    return statPairs
+  }
+
   startRequests(interval){
     this.reqIntervalId = setTimeout(() => {
-      this.ping().then(() => {
+      // this.ping().then(() => {
         this.thrust()
         this.startRequests(this.state.physicsProperties.timeBtwRequests * 1000)
-      })
+      // })
     }, interval)
+  }
+
+  startStatRequests(){
+    this.statReqIntervalId = setInterval(() => {
+      this.pingStats.then((res) => {
+        let cpuUsageStats = this.parseData(res)
+        this.setState({cpuUsageStats})
+      })
+    }, 10000)
   }
 
   ping(){
     return axios.get(`http://localhost:4567/${this.state.physicsProperties.load}`)
+  }
+
+  pingStats() {
+    return axios.get('http://someUrl')
   }
 
   thrust(){
@@ -108,11 +150,25 @@ class App extends Component {
       width: `${window.innerWidth}px`,
       top: `${window.innerHeight + 200 - window.innerHeight / 1.5}px`
     }
+
+    let cpuUsageStats = this.state.cpuUsageStats.map((stat) => {
+      return (
+        <div key={stat.name} className='stat'>
+          <span className='name'>{stat.name}</span>
+          <span className='percentage'>{stat.cpuPercent}</span>
+        </div>
+      )
+    })
+
     return (
       <div className="App">
         <PhysicsControls physicsProperties={this.state.physicsProperties}
                          onSubmit={this.setPhysicsProperties.bind(this)}
                          thrust={this.thrust.bind(this)}/>
+
+        <div className='usageStats'>
+          {cpuUsageStats}
+        </div>
         <Wave isBottom={this.state.whale.isBottom}
               top={50}
               offSet={-52}
